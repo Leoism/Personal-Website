@@ -4,7 +4,8 @@ function loadGame() {
 	}, 3000)
 }
 
+let points = 0
 function addPoints() {
-	let points = document.getElementById("points")
-	points.innerHTML += 1
+	points = points + 1
+	document.getElementById("points").innerHTML = 'Points: ' + points
 }
