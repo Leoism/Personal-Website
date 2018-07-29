@@ -6,3 +6,19 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.cat_scaled {
+	width: 25%;
+	margin-top: 20%;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#points {
+	padding: 0.5%;
+	width: 7%;
+	background-color: #000;
+	color: #FFF;
+
+}
