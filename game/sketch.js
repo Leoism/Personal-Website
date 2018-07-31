@@ -25,8 +25,8 @@ function step() {
 }
 
 function collisions() {
-  if(myBox.y >= myBox2.y + 6&& myBox.y <= myBox2.y) {
-    myBox.x = 0
+  if (myBox.x >= 239 && myBox.x <= 273 && myBox.y >= 632) {
+    myBox.x = 67
   }
 }
 
