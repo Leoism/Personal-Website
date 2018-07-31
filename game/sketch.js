@@ -7,13 +7,15 @@ function setup() {
 
 }
 
+let points = 0
+
 function draw() {
   step()
 
   background(backgroundColor)
   myBox.show()
   myBox2.show()
-
+  text(points, 10, 30)
 
 }
 
@@ -24,9 +26,11 @@ function step() {
   keyIsDown()
 }
 
+
+
 function collisions() {
   if (myBox.x >= 239 && myBox.x <= 273 && myBox.y >= 632) {
-    myBox.x = 67
+    points += 1 
   }
 }
 
