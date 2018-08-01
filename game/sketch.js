@@ -6,6 +6,9 @@ let coco
 let roko
 let toko
 
+let ribble1
+let ribble2
+let ribble3
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
@@ -14,12 +17,16 @@ function setup() {
       'color': type
     }
     
+    ribble1 = loadImage('sprites/Toko.png')
+    ribble2 = loadImage('sprites/Roko.png')
+    ribble3 = loadImage('sprites/Coco.png')
+
+
     coco = new Box(width -100, height-50, 30, {r :0, g :248, b :95})
 
     roko = new Box(width /2-30, height-50, 30, {r :0, g :38, b :255})
 
     toko = new Box(width /8, height-50, 30, {r :255, g :38, b :0})
-
 }
 
 let points = 0
@@ -34,6 +41,10 @@ function draw() {
   roko.show()
   toko.show()
   text(points, 10, 30)
+  // loads img which is Toko
+  image(ribble1, width/9, height-60, 50, 50)
+  image(ribble2, width/2-40, height-60, 50, 50)
+  image(ribble3, width - 110, height-60, 50, 50)
 
 }
 
@@ -41,7 +52,7 @@ function step() {
   control()
   collisions()
   applyGravity()
-  keyIsDown()
+  keyIsDown()  
 }
 
 function randomSpawn() {
@@ -91,6 +102,7 @@ function collisions() {
   }
   
 }
+
 
 function applyGravity() {
   if (myBox.box.y <= 645) {
