@@ -10,17 +10,22 @@ let ribble1
 let ribble2
 let ribble3
 
+let banana
+
+let chosenImage
+
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
-    myBox = {
-      'box': new Box(width /2, height/9, 30, {r: 255, b: 255, g:255}),
-      'color': type
-    }
-    
     ribble1 = loadImage('sprites/Toko.png')
     ribble2 = loadImage('sprites/Roko.png')
     ribble3 = loadImage('sprites/Coco.png')
+    banana  = loadImage('sprites/Banana.png')
+    bgnd = loadImage('sprites/background.jpg')
 
+    myBox = {
+      'box': new Box(width /2, height/9, 15, {r: 255, b: 255, g:255}),
+      'color': type
+    }
 
     coco = new Box(width -100, height-50, 30, {r :0, g :248, b :95})
 
@@ -35,17 +40,30 @@ function draw() {
   console.log(type)
   step()
 
-  background(backgroundColor)
+  background(bgnd)
   myBox.box.show()
+  items()
   coco.show()
   roko.show()
   toko.show()
   text(points, 10, 30)
   // loads img which is Toko
   image(ribble1, width/9, height-60, 50, 50)
+  // Roko
   image(ribble2, width/2-40, height-60, 50, 50)
+  //Coco
   image(ribble3, width - 110, height-60, 50, 50)
 
+}
+
+function items() {
+  if(type == 'recycle') {
+    
+  } else if (type == 'trash') {
+
+  } else if (type == 'compost') {
+    image(banana, myBox.box.x-13, myBox.box.y-13, 50, 50)
+  }
 }
 
 function step() {
@@ -84,7 +102,7 @@ function randomSpawn() {
   type = types[index]
 
   myBox = {
-      'box': new Box(width /2, height/9, 30, picked),
+      'box': new Box(width /2, height/9, 15, picked),
       'color': type
     }
 }
@@ -103,8 +121,14 @@ function collisions() {
   
 }
 
-
+setInterval(function() {
+  VertMv += 1
+}, 1000)
 function applyGravity() {
+  if (VertMv >= 9) {
+    VertMv = 9
+  } 
+  
   if (myBox.box.y <= 645) {
     myBox.box.y += VertMv
   } else {
