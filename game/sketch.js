@@ -10,7 +10,7 @@ let toko
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
     myBox = {
-      'box': new Box(width /2, height/9, 30, picked),
+      'box': new Box(width /2, height/9, 30, {r: 255, b: 255, g:255}),
       'color': type
     }
     
