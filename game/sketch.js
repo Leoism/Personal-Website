@@ -14,7 +14,6 @@ let banana
 
 let chosenImage
 
-let points
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
