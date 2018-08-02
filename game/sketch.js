@@ -47,6 +47,8 @@ function setup() {
     toko = new Box(width /8, height-50, 30, {r :255, g :38, b :0})
 }
 
+let button
+
 function draw() {
   console.log(type)
   step()
@@ -59,13 +61,20 @@ function draw() {
 
         textSize(50)
         fill(255, 255, 255)
-        text('New HighScore!:\n    ' + points, 50, 100)
+        text('New HighScore!:\n          ' + points, 70, 300)
+        button = createButton('Replay Game')
+        button.position(width/2, height-60)
     return
 
   } else if(ended) {
     textSize(50)
     fill(255, 255, 255)
-    text('Here is your score:\n      ' + points  + '\n\n' + 'Current HighScore: \n      ' + localStorage.getItem('high_score'), 50, 100)
+    text('Here is your score:\n      ' + points  + '\n\n' + 'Current HighScore: \n      ' + localStorage.getItem('high_score'), 50, 200)
+    button = createButton('Replay Game')
+    button.position(width/2-50, height-160)
+    button.mousePressed(function() {
+      document.location.reload(true)
+    })
     return
   }
 
@@ -145,24 +154,24 @@ function randomSpawn() {
 
 function collisions() {
   if (myBox.box.x >= 45 && myBox.box.x <= 90 && myBox.box.y >= 632 && type == "trash") {
-    points += 1 
+    points += 1
+    VertMv += .5
     reset()
   } else if (myBox.box.x >= 204 && myBox.box.x <= 246 && myBox.box.y >= 632 && type == "recycle") {
     points += 1 
+    VertMv += .5
     reset()
   } else if (myBox.box.x >= 390 && myBox.box.x <= 434 && myBox.box.y >= 632 && type == "compost") {
     points += 1 
+    VertMv += .5
     reset()
   }
   
 }
 
-setInterval(function() {
-  VertMv += 1
-}, 1000)
 function applyGravity() {
-  if (VertMv >= 9) {
-    VertMv = 9
+  if (VertMv >= 25) {
+    VertMv = 25
   } 
   
   if (myBox.box.y <= 655) {
