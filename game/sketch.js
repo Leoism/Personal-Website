@@ -13,7 +13,11 @@ let ribble3
 let banana
 
 let chosenImage
+let song
 
+function preload() {
+  song = loadSound('/game/game_music.mp3')
+}
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
@@ -24,6 +28,10 @@ function setup() {
     paper   = loadImage('/game/sprites/Crumpled_paper.png')
     trash   = loadImage('/game/sprites/Trash_Bag.png')
     bgnd    = loadImage('/game/sprites/background.jpg')
+
+    
+
+    song.loop()
 
     myBox = {
       'box': new Box(width /2, height/9, 15, {r: 255, b: 255, g:255}),
