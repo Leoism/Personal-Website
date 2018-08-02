@@ -16,11 +16,13 @@ let chosenImage
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
-    ribble1 = loadImage('sprites/Toko.png')
-    ribble2 = loadImage('sprites/Roko.png')
-    ribble3 = loadImage('sprites/Coco.png')
-    banana  = loadImage('sprites/Banana.png')
-    bgnd = loadImage('sprites/background.jpg')
+    ribble1 = loadImage('/game/sprites/Toko.png')
+    ribble2 = loadImage('/game/sprites/Roko.png')
+    ribble3 = loadImage('/game/sprites/Coco.png')
+    banana  = loadImage('/game/sprites/Banana.png')
+    paper   = loadImage('/game/sprites/Crumpled_paper.png')
+    trash   = loadImage('/game/sprites/Trash_Bag.png')
+    bgnd    = loadImage('/game/sprites/background.jpg')
 
     myBox = {
       'box': new Box(width /2, height/9, 15, {r: 255, b: 255, g:255}),
@@ -33,8 +35,6 @@ function setup() {
 
     toko = new Box(width /8, height-50, 30, {r :255, g :38, b :0})
 }
-
-let points = 0
 
 function draw() {
   console.log(type)
@@ -58,9 +58,9 @@ function draw() {
 
 function items() {
   if(type == 'recycle') {
-    
+    image(paper, myBox.box.x-13, myBox.box.y-13, 50, 50)
   } else if (type == 'trash') {
-
+    image(trash, myBox.box.x-13, myBox.box.y-13, 50, 50)
   } else if (type == 'compost') {
     image(banana, myBox.box.x-13, myBox.box.y-13, 50, 50)
   }
@@ -105,6 +105,8 @@ function randomSpawn() {
       'box': new Box(width /2, height/9, 15, picked),
       'color': type
     }
+
+  console.log('sketch.js \n' + points)
 }
 
 function collisions() {
