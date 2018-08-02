@@ -14,6 +14,8 @@ let banana
 
 let chosenImage
 
+let points
+
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
     ribble1 = loadImage('/game/sprites/Toko.png')
