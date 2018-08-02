@@ -8,6 +8,14 @@
 <body class="bg">
 	<script type="text/javascript">
 		var points = 0
+		var json = {}
+		var ended = false
+		setInterval(function() {
+			if(ended == true && points >= localStorage.getItem('high_score')) {
+				myJSON = JSON.stringify(json)
+    			localStorage.setItem('high_score', points)
+			}
+		}, 250)
 	</script>
 	<script src="/game/Libraries/p5.js" type="text/javascript"></script>
 	<script src="/game/Libraries/p5.sound.js" type="text/javascript"></script>
@@ -15,7 +23,9 @@
 	<script src="/game/sketch.js" type="text/javascript"></script>
 	<script src="/game/constants.js" type="text/javascript"></script>
 	<script src="/game/box.js" type="text/javascript"></script>
+
 	<script src="/server.js" type="text/javascript"></script>
+	<script src="/game/points.js" type="text/javascript"></script>
 	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
 </body>
 </html>

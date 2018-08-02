@@ -19,6 +19,8 @@ function preload() {
   song = loadSound('/game/game_music.mp3')
 }
 
+let lives = 5
+
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
     ribble1 = loadImage('/game/sprites/Toko.png')
@@ -50,21 +52,45 @@ function draw() {
   step()
 
   background(bgnd)
+
+  if(ended && points >= localStorage.getItem('high_score')) {
+        myJSON = JSON.stringify(json)
+          localStorage.setItem('high_score', points)
+
+        textSize(50)
+        fill(255, 255, 255)
+        text('New HighScore!:\n    ' + points, 50, 100)
+    return
+
+  } else if(ended) {
+    textSize(50)
+    fill(255, 255, 255)
+    text('Here is your score:\n      ' + points  + '\n\n' + 'Current HighScore: \n      ' + localStorage.getItem('high_score'), 50, 100)
+    return
+  }
+
   myBox.box.show()
-  items()
-  coco.show()
-  roko.show()
-  toko.show()
-  text(points, 10, 30)
-  // loads img which is Toko
-  image(ribble1, width/9, height-60, 50, 50)
-  // Roko
-  image(ribble2, width/2-40, height-60, 50, 50)
-  //Coco
-  image(ribble3, width - 110, height-60, 50, 50)
+    items()
+    coco.show()
+    roko.show()
+    toko.show()
+    textSize(32)
+    fill(255, 255, 255);
+    text(points, 10, 50)
+
+
+    textSize(32)
+    fill(255, 0, 0)
+    text(lives, 470, 50)
+    // loads img which is Toko
+    image(ribble1, width/9, height-60, 50, 50)
+    // Roko
+    image(ribble2, width/2-40, height-60, 50, 50)
+    //Coco
+    image(ribble3, width - 110, height-60, 50, 50)
+  
 
 }
-
 function items() {
   if(type == 'recycle') {
     image(paper, myBox.box.x-13, myBox.box.y-13, 50, 50)
@@ -79,7 +105,8 @@ function step() {
   control()
   collisions()
   applyGravity()
-  keyIsDown()  
+  keyIsDown() 
+  endGame()
 }
 
 function randomSpawn() {
@@ -114,18 +141,16 @@ function randomSpawn() {
       'box': new Box(width /2, height/9, 15, picked),
       'color': type
     }
-
-  console.log('sketch.js \n' + points)
 }
 
 function collisions() {
-  if (myBox.box.x >= 47 && myBox.box.x <= 82 && myBox.box.y >= 632 && type == "trash") {
+  if (myBox.box.x >= 45 && myBox.box.x <= 90 && myBox.box.y >= 632 && type == "trash") {
     points += 1 
     reset()
-  } else if (myBox.box.x >= 208 && myBox.box.x <= 244 && myBox.box.y >= 632 && type == "recycle") {
+  } else if (myBox.box.x >= 204 && myBox.box.x <= 246 && myBox.box.y >= 632 && type == "recycle") {
     points += 1 
     reset()
-  } else if (myBox.box.x >= 394 && myBox.box.x <= 430 && myBox.box.y >= 632 && type == "compost") {
+  } else if (myBox.box.x >= 390 && myBox.box.x <= 434 && myBox.box.y >= 632 && type == "compost") {
     points += 1 
     reset()
   }
@@ -140,10 +165,11 @@ function applyGravity() {
     VertMv = 9
   } 
   
-  if (myBox.box.y <= 645) {
+  if (myBox.box.y <= 655) {
     myBox.box.y += VertMv
   } else {
     myBox.box.y = height/9
+    removeLives()
   }
 
   if (myBox.box.x <= 0) {
@@ -151,6 +177,18 @@ function applyGravity() {
   } else if (myBox.box.x >= width) {
     myBox.box.x = 0
   }
+}
+
+function removeLives() {
+  lives -= 1
+}
+
+function endGame() {
+  if(lives <= 0) {
+    clear()
+    ended = true
+  }
+
 }
 
 function control() {
