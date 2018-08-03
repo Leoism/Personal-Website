@@ -25,11 +25,11 @@ function setup() {
     }
 
     enemies2 = {
-      'box': new Box(Math.floor(Math.random() * width), -15000, 15, {r: 0, b: 255, g:255})
+      'box': new Box(Math.floor(Math.random() * width), -7000, 15, {r: 0, b: 255, g:255})
     }
 
     enemies3 = {
-      'box': new Box(Math.floor(Math.random() * width), -30000, 15, {r: 0, b: 255, g:255})
+      'box': new Box(Math.floor(Math.random() * width), -14000, 15, {r: 0, b: 255, g:255})
     }
 }
 
