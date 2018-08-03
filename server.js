@@ -42,6 +42,13 @@ app.get('/ribble_drop', function(req, res) {
 	})
 })
 
+app.get('/ribble_catch', function(req, res) {
+	res.sendFile('/game/ribble_catch.html', {
+		root: path.join(__dirname, '/')
+	})
+})
+
+
 app.listen(80,function(){
   console.log("Live at Port 80");
 });

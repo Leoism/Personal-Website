@@ -13,9 +13,9 @@ let stop = false
 
 function setup() {
 	createCanvas(512, 700)
-	bgnd = loadImage('sprites/ribble_catch_bg.jpg')
-	character = loadImage('sprites/Toko.png')
-	toxicWaste = loadImage('sprites/enemy.png')
+	bgnd = loadImage('/game/sprites/ribble_catch_bg.jpg')
+	character = loadImage('/game/sprites/Toko.png')
+	toxicWaste = loadImage('/game/sprites/enemy.png')
 	player = {
       'box': new Box(Math.floor(Math.random() * width), height-130, 15, {r: 50, b: 0, g:0})
     }
