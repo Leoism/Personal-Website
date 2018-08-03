@@ -16,7 +16,9 @@ let chosenImage
 let song
 let munch
 
-
+function chatBubble() {
+  alert("Hey! Can you help me? I need to sort all this trash to feed my ribbles. My red ribble eats trash, my blue one eats recyclables, and my green one eats compost. Click Ribble drop to begin!")
+}
 
 function preload() {
   munch = loadSound('/game/munch.mp3')
@@ -35,7 +37,7 @@ function setup() {
     trash   = loadImage('/game/sprites/Trash_Bag.png')
     bgnd    = loadImage('/game/sprites/background.jpg')
 
-    
+
 
     song.loop()
 
@@ -105,7 +107,7 @@ function draw() {
     image(ribble2, width/2-40, height-60, 50, 50)
     //Coco
     image(ribble3, width - 110, height-60, 50, 50)
-  
+
 
 }
 
@@ -123,7 +125,7 @@ function step() {
   control()
   collisions()
   applyGravity()
-  keyIsDown() 
+  keyIsDown()
   endGame()
 }
 
@@ -168,24 +170,24 @@ function collisions() {
     munch.play()
     reset()
   } else if (myBox.box.x >= 204 && myBox.box.x <= 246 && myBox.box.y >= 632 && type == "recycle") {
-    points += 1 
+    points += 1
     VertMv += .5
     munch.play()
     reset()
   } else if (myBox.box.x >= 390 && myBox.box.x <= 434 && myBox.box.y >= 632 && type == "compost") {
-    points += 1 
+    points += 1
     VertMv += .5
     munch.play()
     reset()
   }
-  
+
 }
 
 function applyGravity() {
   if (VertMv >= 14) {
     VertMv = 14
-  } 
-  
+  }
+
   if (myBox.box.y <= 655) {
     myBox.box.y += VertMv
   } else {

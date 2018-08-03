@@ -1,5 +1,5 @@
 .bg {
-	background-image: url(' ../game/sprites/Hache_laying.png');
+	background-image: url(' ../game/sprites/Hache_laying_copy.png');
 	background-attachment: fixed;
 	background-position: center;
     background-repeat: no-repeat;
@@ -88,11 +88,13 @@
   font-size: 10px;
   color: #132E68;
 	float: right;
-  line-height: 500px;
+  line-height: 600px;
   text-align: center;
   background: #C3C7CF;
 	opacity: 0.6;
   filter: alpha(opacity = 60);
+	font-family: 'Bungee', cursive;
+
 }
 
 .about_Joshua {
@@ -102,11 +104,12 @@
   font-size: 10px;
   color: #132E68;
 	float: left;
-  line-height: 500px;
+  line-height: 600px;
   text-align: center;
   background: #C3C7CF;
 	opacity: 0.6;
   filter: alpha(opacity = 60);
+	font-family: 'Bungee', cursive;
 }
 
 a {
