@@ -14,8 +14,10 @@ let banana
 
 let chosenImage
 let song
+let munch
 
 function preload() {
+  munch = loadSound('/game/munch.mp3')
   song = loadSound('/game/game_music.mp3')
 }
 
@@ -63,8 +65,11 @@ function draw() {
         fill(255, 255, 255)
         text('New HighScore!:\n          ' + points, 70, 300)
         button = createButton('Replay Game')
-        button.position(width/2, height-60)
-    return
+        button.position(width/2-50, height-160)
+        button.mousePressed(function() {
+           document.location.reload(true)
+        })
+        return
 
   } else if(ended) {
     textSize(50)
@@ -147,7 +152,7 @@ function randomSpawn() {
   type = types[index]
 
   myBox = {
-      'box': new Box(width /2, height/9, 15, picked),
+      'box': new Box(Math.floor(Math.random() * width), height/9, 15, picked),
       'color': type
     }
 }
@@ -156,22 +161,25 @@ function collisions() {
   if (myBox.box.x >= 45 && myBox.box.x <= 90 && myBox.box.y >= 632 && type == "trash") {
     points += 1
     VertMv += .5
+    munch.play()
     reset()
   } else if (myBox.box.x >= 204 && myBox.box.x <= 246 && myBox.box.y >= 632 && type == "recycle") {
     points += 1 
     VertMv += .5
+    munch.play()
     reset()
   } else if (myBox.box.x >= 390 && myBox.box.x <= 434 && myBox.box.y >= 632 && type == "compost") {
     points += 1 
     VertMv += .5
+    munch.play()
     reset()
   }
   
 }
 
 function applyGravity() {
-  if (VertMv >= 25) {
-    VertMv = 25
+  if (VertMv >= 14) {
+    VertMv = 14
   } 
   
   if (myBox.box.y <= 655) {
