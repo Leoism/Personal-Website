@@ -1,11 +1,9 @@
-.bg {
+.bgg {
 	background-image: url('../game/sprites/Dumpster.png');
 	background-attachment: fixed;
 	background-position: center;
-  background-repeat: no-repeat;
-	background-size: auto;
-	height: 100%;
-	width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .cat_scaled {
@@ -26,3 +24,18 @@
 	border-radius: 12px;
 
 }
+
+.game-button {
+    background-color: #0693D0;
+    border: none;
+    color:#132E68;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 12px;
+    width: 14%;
+	font-family: 'Bungee', cursive;
+}
+
