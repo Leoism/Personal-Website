@@ -1,24 +1,28 @@
 .bg {
-	background-image: url('../images/house.jpg');
-	height: 100%;
+	background-image: url('../game/sprites/Dumpster.png');
 	background-attachment: fixed;
 	background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+  background-repeat: no-repeat;
+	background-size: auto;
+	height: 100%;
+	width: 100%;
 }
 
 .cat_scaled {
-	width: 25%;
+	width:15%;
 	margin-top: 20%;
 	display: block;
 	margin-left: auto;
-	margin-right: auto;
+	margin-right: 970px;
 }
 
 #points {
 	padding: 0.5%;
 	width: 7%;
-	background-color: #000;
-	color: #FFF;
+	background-color: #0693D0;
+	color: #132E68;
+	font-family: 'Bungee', cursive;
+	text-align: center;
+	border-radius: 12px;
 
 }
