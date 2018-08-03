@@ -16,6 +16,8 @@ let chosenImage
 let song
 let munch
 
+
+
 function preload() {
   munch = loadSound('/game/munch.mp3')
   song = loadSound('/game/game_music.mp3')
@@ -52,7 +54,8 @@ function setup() {
 let button
 
 function draw() {
-  console.log(type)
+  //
+
   step()
 
   background(bgnd)
@@ -105,6 +108,7 @@ function draw() {
   
 
 }
+
 function items() {
   if(type == 'recycle') {
     image(paper, myBox.box.x-13, myBox.box.y-13, 50, 50)
@@ -217,12 +221,20 @@ function control() {
       myBox.box.y += 3
     } else if (keyIsDown(DOWN_ARROW)) {
       myBox.box.y += 3
-    } else if (keyIsDown(RIGHT_ARROW)) {
-      myBox.box.x += HorizMv
     } else if (keyIsDown(LEFT_ARROW)) {
       myBox.box.x -= HorizMv
+    } else if (keyIsDown(RIGHT_ARROW)) {
+      myBox.box.x += HorizMv
     }
-}
+
+    if(mouseIsPressed) {
+      if (mouseX <= 256) {
+        myBox.box.x -= HorizMv
+      } else if (mouseX >= 256) {
+        myBox.box.x += HorizMv
+      }
+    }
+  }
 
 function reset() {
     myBox.box.y = 0
