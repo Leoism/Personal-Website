@@ -3,20 +3,35 @@ let bgnd
 let character
 let toxicWaste
 let enemy
+let pellet
+let power
 let enemies2
 let enemies3
+let enemies4
+let enemies5
+let enemy2
+let enemy3
+let enemy4
 
 let speed = 3
 let score = 0
 let lives = 5
 let stop = false
 
+let song
+
+function preload() {
+  song = loadSound('/game/catch_bgm.mp3')
+}
+
 function setup() {
 	createCanvas(512, 700)
 	bgnd = loadImage('/game/sprites/ribble_catch_bg.jpg')
 	character = loadImage('/game/sprites/Toko.png')
 	toxicWaste = loadImage('/game/sprites/enemy.png')
-	player = {
+  pellet = loadImage('/game/sprites/power.png')
+	 song.loop()
+   player = {
       'box': new Box(Math.floor(Math.random() * width), height-130, 15, {r: 50, b: 0, g:0})
     }
 
@@ -30,6 +45,30 @@ function setup() {
 
     enemies3 = {
       'box': new Box(Math.floor(Math.random() * width), -14000, 15, {r: 0, b: 255, g:255})
+    }
+
+    enemies4 = {
+      'box': new Box(Math.floor(Math.random() * width), -7250, 15, {r: 0, b: 255, g:255})
+    }
+
+    enemies5 = {
+      'box': new Box(Math.floor(Math.random() * width), -7500, 15, {r: 0, b: 255, g:255})
+    }
+
+    enemy2 = {
+      'box': new Box(Math.floor(Math.random() * width), -1300, 15, {r: 0, b: 255, g:255})
+    }
+
+    enemy3 = {
+      'box': new Box(Math.floor(Math.random() * width), -1350, 15, {r: 0, b: 255, g:255})
+    }
+
+    enemy4 = {
+      'box': new Box(Math.floor(Math.random() * width), -14000, 15, {r: 0, b: 255, g:255})
+    }
+
+    power = {
+      'box': new Box(Math.floor(Math.random() * width), 13, 15, {r: 0, b: 255, g:255})
     }
 }
 
@@ -68,10 +107,24 @@ function draw() {
 	enemy.box.show()
 	enemies2.box.show()
 	enemies3.box.show()
+  enemies4.box.show()
+  enemies5.box.show()
+  enemy2.box.show()
+  enemy3.box.show()
+  enemy4.box.show()
+  power.box.show()
+
 	image(character, player.box.x-15, player.box.y-15, 50, 50)
 	image(toxicWaste, enemy.box.x-15, enemy.box.y-15, 50, 50)
 	image(toxicWaste, enemies2.box.x-15, enemies2.box.y-15, 50, 50)
 	image(toxicWaste, enemies3.box.x-15, enemies3.box.y-15, 50, 50)
+  image(toxicWaste, enemies4.box.x-15, enemies4.box.y-15, 50, 50)
+  image(toxicWaste, enemies5.box.x-15, enemies5.box.y-15, 50, 50)
+  image(toxicWaste, enemy2.box.x-15, enemy2.box.y-15, 50, 50)
+  image(toxicWaste, enemy3.box.x-15, enemy3.box.y-15, 50, 50)
+  image(toxicWaste, enemy4.box.x-15, enemy4.box.y-15, 50, 50)
+  image(pellet, power.box.x-5, power.box.y-5, 25, 25)
+
 	step()
 	textSize(32)
 	fill(255,255,255)
@@ -111,7 +164,12 @@ function control() {
  	enemy.box.y += speed
  	enemies2.box.y += speed
  	enemies3.box.y += speed
- 	
+  enemies4.box.y += speed
+  enemies5.box.y += speed
+  enemy2.box.y += speed
+  enemy3.box.y += speed
+ 	enemy4.box.y += speed
+  power.box.y += 6
  }
 
  function hitOrMiss() {
@@ -132,6 +190,40 @@ function control() {
  		randomSpawn(enemies3)
  		return true
  	}
+  if(enemy2.box.y >= height-140 && (enemy2.box.x >= player.box.x-25 && enemy2.box.x <= player.box.x+25)) {
+    lives -= 1
+    randomSpawn(enemy2)
+    return true
+  }
+
+  if(enemies4.box.y >= height-140 && (enemies4.box.x >= player.box.x-25 && enemies4.box.x <= player.box.x+25)) {
+    lives -= 1
+    randomSpawn(enemies4)
+    return true
+  }
+
+  if(enemies5.box.y >= height-140 && (enemies5.box.x >= player.box.x-25 && enemies5.box.x <= player.box.x+25)) {
+    lives -= 1
+    randomSpawn(enemies5)
+    return true
+  }
+  if(enemy3.box.y >= height-140 && (enemy3.box.x >= player.box.x-25 && enemy3.box.x <= player.box.x+25)) {
+    lives -= 1
+    randomSpawn(enemy3)
+    return true
+  }
+
+  if(enemy4.box.y >= height-140 && (enemy4.box.x >= player.box.x-25 && enemy4.box.x <= player.box.x+25)) {
+    lives -= 1
+    randomSpawn(enemy4)
+    return true
+  }
+
+  if(power.box.y >= player.box.y-40 && (power.box.x >= player.box.x-30 && power.box.x <= player.box.x+30)) {
+    score += 10
+    randomSpawn(power)
+    return true
+  }
  }
 
  function randomSpawn(object) {
@@ -169,6 +261,35 @@ function control() {
  		enemies3.box.y = 13
  		randomSpawn(enemies3)
  	}
+  if(enemies4.box.y >= height-110) {
+    enemies4.box.y = 13
+    randomSpawn(enemies4)
+  }
+  if(enemies4.box.y >= height-110) {
+    enemies4.box.y = 13
+    randomSpawn(enemies4)
+  }
+  if(enemies5.box.y >= height-110) {
+    enemies5.box.y = 13
+    randomSpawn(enemies5)
+  }
+  if(enemy2.box.y >= height-110) {
+    enemy2.box.y = 13
+    randomSpawn(enemy2)
+  }
+  if(enemy3.box.y >= height-110) {
+    enemy3.box.y = 13
+    randomSpawn(enemy3)
+  }
+  if(enemy4.box.y >= height-110) {
+    enemy4.box.y = 13
+    randomSpawn(enemy4)
+  }
+  if(power.box.y >= height-110) {
+    power.box.y = 13
+    lives -= 1
+    randomSpawn(power)
+  }
  }
 
  function endGame() {
