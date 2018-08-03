@@ -10,9 +10,9 @@
 		var json = {}
 		var ended = false
 		setInterval(function() {
-			if(ended == true && points >= localStorage.getItem('high_score')) {
+			if(ended == true && points >= localStorage.getItem('catch_score')) {
 				myJSON = JSON.stringify(json)
-    			localStorage.setItem('high_score', points)
+    			localStorage.setItem('catch_score', points)
 			}
 		}, 250)
 	</script>

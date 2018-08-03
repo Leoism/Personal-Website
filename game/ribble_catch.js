@@ -77,9 +77,9 @@ function draw() {
 	
 	
 
-	if(ended && score >= localStorage.getItem('high_score')) {
+	if(ended && score >= localStorage.getItem('catch_score')) {
         myJSON = JSON.stringify(json)
-          localStorage.setItem('high_score', score)
+          localStorage.setItem('catch_score', score)
 
         textSize(50)
         fill(0, 0, 0)
@@ -94,7 +94,7 @@ function draw() {
   } else if(ended) {
     textSize(50)
     fill(0, 0, 0)
-    text('Here is your score:\n      ' + score  + '\n\n' + 'Current HighScore: \n      ' + localStorage.getItem('high_score'), 50, 200)
+    text('Here is your score:\n      ' + score  + '\n\n' + 'Current HighScore: \n      ' + localStorage.getItem('catch_score'), 50, 200)
     button = createButton('Replay Game')
     button.position(width/2-50, height-160)
     button.mousePressed(function() {
