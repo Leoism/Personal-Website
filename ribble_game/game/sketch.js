@@ -21,21 +21,21 @@ function chatBubble() {
 }
 
 function preload() {
-  munch = loadSound('/game/munch.mp3')
-  song = loadSound('/game/game_music.mp3')
+  munch = loadSound('/ribble_game/game/munch.mp3')
+  song = loadSound('/ribble_game/game/game_music.mp3')
 }
 
 let lives = 5
 
 function setup() {
     createCanvas(canvasWidth, canvasHeight)
-    ribble1 = loadImage('/game/sprites/Toko.png')
-    ribble2 = loadImage('/game/sprites/Roko.png')
-    ribble3 = loadImage('/game/sprites/Coco.png')
-    banana  = loadImage('/game/sprites/Banana.png')
-    paper   = loadImage('/game/sprites/Crumpled_paper.png')
-    trash   = loadImage('/game/sprites/Trash_Bag.png')
-    bgnd    = loadImage('/game/sprites/background.jpg')
+    ribble1 = loadImage('/ribble_game/game/sprites/Toko.png')
+    ribble2 = loadImage('/ribble_game/game/sprites/Roko.png')
+    ribble3 = loadImage('/ribble_game/game/sprites/Coco.png')
+    banana  = loadImage('/ribble_game/game/sprites/Banana.png')
+    paper   = loadImage('/ribble_game/game/sprites/Crumpled_paper.png')
+    trash   = loadImage('/ribble_game/game/sprites/Trash_Bag.png')
+    bgnd    = loadImage('/ribble_game/game/sprites/background.jpg')
 
 
 

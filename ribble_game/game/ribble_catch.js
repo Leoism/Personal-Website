@@ -21,15 +21,15 @@ let stop = false
 let song
 
 function preload() {
-  song = loadSound('/game/catch_bgm.mp3')
+  song = loadSound('/ribble_game/game/catch_bgm.mp3')
 }
 
 function setup() {
 	createCanvas(512, 700)
-	bgnd = loadImage('/game/sprites/ribble_catch_bg.jpg')
-	character = loadImage('/game/sprites/Toko.png')
-	toxicWaste = loadImage('/game/sprites/enemy.png')
-  pellet = loadImage('/game/sprites/power.png')
+	bgnd = loadImage('/ribble_game/game/sprites/ribble_catch_bg.jpg')
+	character = loadImage('/ribble_game/game/sprites/Toko.png')
+	toxicWaste = loadImage('/ribble_game/game/sprites/enemy.png')
+  pellet = loadImage('/ribble_game/game/sprites/power.png')
 	 song.loop()
    player = {
       'box': new Box(Math.floor(Math.random() * width), height-130, 15, {r: 50, b: 0, g:0})
