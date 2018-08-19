@@ -1,5 +1,6 @@
 body, html {
 	height: 100%;
+	font-family: "Lato",sans-serif;
 }
 
 .parallax {
@@ -12,4 +13,36 @@ body, html {
 
 footer {
 	text-align: center;
+}
+
+.topbanner {
+	margin-bottom: -0.01%;
+}
+
+.images {
+	width: 1080px;
+	max-width: 100%;
+	margin: auto;
+} 
+
+/* Dumpster Dive Banners*/
+
+.dt-banners {
+	margin-top: -0%;
+}
+
+.position-column {
+	text-align: center;
+}
+
+.format-text {
+	font-size: 20px;
+	width: 1080px;
+	max-width: 100%;
+	margin: auto;
+	text-align: left;
+}
+
+.d-h1 {
+	font-size: 300%; !important
 }

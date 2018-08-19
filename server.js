@@ -3,7 +3,7 @@ var app = express();
 var router = express.Router();
 var path = require('path')
 
-
+app.use('/Projects', express.static(__dirname + '/Projects'))
 app.use('/Contact', express.static(__dirname + '/Contact'))
 app.use('/bootstrap', express.static(__dirname + '/bootstrap'))
 app.use('/ribble_game/css', express.static(__dirname + '/ribble_game/css'))
@@ -25,6 +25,14 @@ app.get('/',  function(req, res) {
 
 app.get('/about_me',  function(req, res) {
 	res.sendFile('/Contact/contact.html', {
+		root: path.join(__dirname + '/')
+	})
+})
+
+// Projects
+
+app.get('/projects',  function(req, res) {
+	res.sendFile('/Projects/projects.html', {
 		root: path.join(__dirname + '/')
 	})
 })
