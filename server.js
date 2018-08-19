@@ -4,6 +4,7 @@ var router = express.Router();
 var path = require('path')
 
 
+app.use('/Contact', express.static(__dirname + '/Contact'))
 app.use('/bootstrap', express.static(__dirname + '/bootstrap'))
 app.use('/ribble_game/css', express.static(__dirname + '/ribble_game/css'))
 app.use('/ribble_game/images', express.static(__dirname + '/ribble_game/images'))
@@ -19,6 +20,16 @@ app.get('/',  function(req, res) {
 		root: path.join(__dirname + '/')
 	})
 })
+
+// Contact Information
+
+app.get('/about_me',  function(req, res) {
+	res.sendFile('/Contact/contact.html', {
+		root: path.join(__dirname + '/')
+	})
+})
+
+// CSSI PROJECT
 
 app.get('/menu', function(req, res) {
 	res.sendFile('/ribble_game/menu.html', {
