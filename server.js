@@ -3,6 +3,8 @@ var app = express();
 var router = express.Router();
 var path = require('path')
 
+
+app.use('/bootstrap', express.static(__dirname + '/bootstrap'))
 app.use('/ribble_game/css', express.static(__dirname + '/ribble_game/css'))
 app.use('/ribble_game/images', express.static(__dirname + '/ribble_game/images'))
 app.use('/ribble_game/scripts', express.static(__dirname + '/ribble_game/scripts'))
