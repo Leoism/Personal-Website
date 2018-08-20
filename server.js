@@ -17,7 +17,7 @@ app.use('/ribble_game/game/sprites', express.static(__dirname + '/ribble_game/ga
 
 app.get('/',  function(req, res) {
 	res.sendFile('index.html', {
-		root: path.join(__dirname + '/')
+		root: path.join(__dirname, '/')
 	})
 })
 
@@ -25,7 +25,7 @@ app.get('/',  function(req, res) {
 
 app.get('/about_me',  function(req, res) {
 	res.sendFile('/Contact/contact.html', {
-		root: path.join(__dirname + '/')
+		root: path.join(__dirname, '/')
 	})
 })
 
@@ -33,7 +33,7 @@ app.get('/about_me',  function(req, res) {
 
 app.get('/projects',  function(req, res) {
 	res.sendFile('/Projects/projects.html', {
-		root: path.join(__dirname + '/')
+		root: path.join(__dirname, '/')
 	})
 })
 
