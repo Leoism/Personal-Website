@@ -5897,7 +5897,7 @@ button.close {
 
 .carousel-fade .carousel-item {
   opacity: 0;
-  transition-duration: .6s;
+  transition-duration: 1.3s;
   transition-property: opacity;
 }
 

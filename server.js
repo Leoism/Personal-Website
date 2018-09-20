@@ -3,6 +3,8 @@ var app = express();
 var router = express.Router();
 var path = require('path')
 
+
+app.use('/Hoc', express.static(__dirname + '/HoC'))
 app.use('/Projects', express.static(__dirname + '/Projects'))
 app.use('/Contact', express.static(__dirname + '/Contact'))
 app.use('/bootstrap', express.static(__dirname + '/bootstrap'))
@@ -21,6 +23,8 @@ app.get('/',  function(req, res) {
 	})
 })
 
+
+
 // Contact Information
 
 app.get('/about_me',  function(req, res) {
@@ -33,6 +37,14 @@ app.get('/about_me',  function(req, res) {
 
 app.get('/projects',  function(req, res) {
 	res.sendFile('/Projects/projects.html', {
+		root: path.join(__dirname, '/')
+	})
+})
+
+// Hour of Code
+
+app.get('/hour_of_code', function(req, res) {
+	res.sendFile('/HoC/hourOfCode.html', {
 		root: path.join(__dirname, '/')
 	})
 })
